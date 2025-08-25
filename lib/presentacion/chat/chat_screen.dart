@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/domain/model/chat_message_model.dart';
-import 'package:myapp/presentacion/chat/global/my_app_provider.dart';
+import 'package:myapp/presentacion/global/my_app_provider.dart';
 import 'package:myapp/presentacion/chat/widget/message_bubble_widget.dart';
 import 'package:provider/provider.dart';
 
 class ChatScreen extends StatefulWidget {
-  final String id;
+  final int id;
   final String title;
   const ChatScreen({super.key, required this.id, required this.title});
 
@@ -53,7 +53,7 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  FutureBuilder loadChatMessage(String chatGroupId) {
+  FutureBuilder loadChatMessage(int chatGroupId) {
     return FutureBuilder<List<ChatMessageModel>>(
       future: context.watch<MyAppProvider>().getMessageById(chatGroupId),
       builder: (

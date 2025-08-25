@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/presentacion/chat/chat_screen.dart';
 
 class ChatCardWidget extends StatefulWidget {
-  final String id;
+  final int id;
   final String title;
 
   const ChatCardWidget({super.key, required this.id, required this.title});
@@ -21,8 +21,8 @@ class _ChatCardWidgetState extends State<ChatCardWidget> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder:
-                  (builder) => ChatScreen(id: widget.id, title: widget.title),
+              builder: (builder) =>
+                  ChatScreen(id: widget.id, title: widget.title),
             ),
           );
         },
@@ -32,7 +32,11 @@ class _ChatCardWidgetState extends State<ChatCardWidget> {
             child: Row(
               children: [
                 CircleAvatar(
-                  child: Text(widget.title.substring(0, 2).toUpperCase()),
+                  child: Text(
+                    widget.title.isNotEmpty
+                        ? widget.title.substring(0, 2)
+                        : widget.title.toUpperCase(),
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Text(widget.title),

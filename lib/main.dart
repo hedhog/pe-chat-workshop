@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/presentacion/chat/chat_list_screen.dart';
-import 'package:myapp/presentacion/chat/global/my_app_provider.dart';
+import 'package:myapp/presentacion/global/my_app_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

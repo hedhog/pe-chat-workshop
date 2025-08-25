@@ -1,5 +1,5 @@
 class ChatMessageModel {
-  final String chatGroupId;
+  final int chatGroupId;
   final String sender;
   final String message;
   final DateTime sendTime;
