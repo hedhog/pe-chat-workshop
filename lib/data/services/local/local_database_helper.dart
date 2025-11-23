@@ -14,6 +14,17 @@ class LocalDatabaseHelper {
       )
     """);
 
+    batch.execute("""
+      CREATE TABLE IF NOT EXISTS chatmessages(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        chatGroupId INTEGER,
+        message TEXT,
+        sender TEXT,
+        sendTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(chatGroupId) REFERENCES chatgroups(id)
+      )
+    """);
+
     await batch.commit();
   }
 
